@@ -1,0 +1,90 @@
+.header {
+    margin: 30px 0 24px;
+  }
+  
+ .header-box {
+    /* border: 1px solid #db5757; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a{
+    text-decoration: none;
+  }
+  
+  .header-logo {
+    max-width: 91px;
+    display: flex;
+    align-items: center;
+    color: rgb(10, 20, 58);
+  }
+  
+  .header-logo span {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-left: 6px;
+  }
+
+  .header-burger {
+    display: none;
+    width: 30px;
+    height: 15px;
+  }
+
+  .modal{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(78 99 159 / 70%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 1;
+  }
+
+  .modal.active{
+    display: block;
+  }
+
+  .modal__content {
+    position: relative;
+    background: white;
+    padding: 20px 95px;
+    border-radius: 8px;
+    margin: 50px auto;
+    /* height: 150px; */
+    width: 80%;
+  }
+
+  .modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .burger-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    gap: 15px;
+  }
+
+  .burger-buttons .btn-transparent{
+    padding: 0px;
+  }
+
+ @media (max-width: 786px) {
+    .header-buttons{
+        display: none;
+    }
+    .header-burger{
+        display: block;
+    }
+  }
