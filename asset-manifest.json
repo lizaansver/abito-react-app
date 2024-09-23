@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.2861cba1.css",
-    "main.js": "/react-gh-pages/static/js/main.0c783f20.js",
-    "static/media/slick.svg": "/react-gh-pages/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/react-gh-pages/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/react-gh-pages/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/react-gh-pages/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/react-gh-pages/index.html",
-    "main.2861cba1.css.map": "/react-gh-pages/static/css/main.2861cba1.css.map",
-    "main.0c783f20.js.map": "/react-gh-pages/static/js/main.0c783f20.js.map"
+    "main.css": "/abito-react-app/static/css/main.e1a0f20a.css",
+    "main.js": "/abito-react-app/static/js/main.d388d2be.js",
+    "static/media/slick.svg": "/abito-react-app/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/abito-react-app/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/abito-react-app/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/abito-react-app/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/abito-react-app/index.html",
+    "main.e1a0f20a.css.map": "/abito-react-app/static/css/main.e1a0f20a.css.map",
+    "main.d388d2be.js.map": "/abito-react-app/static/js/main.d388d2be.js.map"
   },
   "entrypoints": [
-    "static/css/main.2861cba1.css",
-    "static/js/main.0c783f20.js"
+    "static/css/main.e1a0f20a.css",
+    "static/js/main.d388d2be.js"
   ]
 }
