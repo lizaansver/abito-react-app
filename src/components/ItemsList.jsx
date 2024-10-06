@@ -1,7 +1,7 @@
 import React from "react";
-import { Card } from "../components/Card/Card"; /// Импортируем компонент Card
+import { Card } from "./Card/Card"; /// Импортируем компонент Card
 
-const MyComponent = ({ filteredItems, visibleItems }) => {
+const ItemsList = ({ filteredItems, visibleItems }) => {
   return (
     <div className="content-menu__list">
       {filteredItems.length === 0 ? (
@@ -9,7 +9,7 @@ const MyComponent = ({ filteredItems, visibleItems }) => {
         <div
           className="not-found">
           <p>Упс, ничего не найдено</p>
-          <a href="/" className="btn btn-primary">
+          <a href="/abito-react-app" className="btn btn-primary">
             Вернуться на главную страницу
           </a>
         </div>
@@ -30,4 +30,4 @@ const MyComponent = ({ filteredItems, visibleItems }) => {
   );
 };
 
-export default MyComponent;
+export default ItemsList;

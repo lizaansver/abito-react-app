@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header/Header";
 import { useParams } from "react-router-dom";
 import { our_array } from "../constants";
@@ -7,8 +7,15 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Footer } from "../components/Footer/Footer";
 export const Product = () => {
+  
+  // Прокрутка страницы вверх при загрузке компонента
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const [inputValue, setInputValue] = useState("Поиск по объявлениям");
   const handleFocus = (event) => {
     if (event.target.value === "Поиск по объявлениям") {
@@ -52,7 +59,7 @@ export const Product = () => {
               onChange={handleChange}
             />
             <button className="btn btn-primary btn-search">
-              <img className="btn-search__img" src="/images/find.svg" alt="" />
+              <img className="btn-search__img" src="/abito-react-app/images/find.svg" alt="" />
               <span className="btn-search__text">Найти</span>
             </button>
           </div>
@@ -124,6 +131,8 @@ export const Product = () => {
           </div>
         </section>
       </main>
+      <hr />
+     <Footer />
     </div>
   );
 };

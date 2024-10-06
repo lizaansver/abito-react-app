@@ -1,5 +1,6 @@
 import './Services.css'
 
+
 export const Services = () => {
     return (
         <div className="content-aside">
@@ -10,7 +11,7 @@ export const Services = () => {
                   <div className="content-aside__list-item">
                     <img
                       className="content-aside__list-item--img"
-                      src="/images/delivery.svg"
+                      src="/abito-react-app/images/delivery.svg"
                       alt="img"
                     />
                     <h5 className="content-aside__list-item--title">
@@ -24,7 +25,7 @@ export const Services = () => {
                   <div className="content-aside__list-item">
                     <img
                       className="content-aside__list-item--img"
-                      src="/images/car.svg"
+                      src="/abito-react-app/images/car.svg"
                       alt="img"
                     />
                     <h5 className="content-aside__list-item--title">
@@ -38,7 +39,7 @@ export const Services = () => {
                   <div className="content-aside__list-item">
                     <img
                       className="content-aside__list-item--img"
-                      src="/images/home.svg"
+                      src="/abito-react-app/images/home.svg"
                       alt="img"
                     />
                     <h5 className="content-aside__list-item--title">
@@ -49,18 +50,6 @@ export const Services = () => {
                       для поездок по России
                     </p>
                   </div>
-                </div>
-                <hr />
-                <div className="content-aside__footer">
-                  <p className="content-aside__footer-item">
-                    © ООО «Абито», 2011–2021
-                  </p>
-                  <a href="#!" className="content-aside__footer-item">
-                    Политика конфиденциальности
-                  </a>
-                  <a href="#!" className="content-aside__footer-item">
-                    Обработка данных
-                  </a>
                 </div>
               </div>
             </div>

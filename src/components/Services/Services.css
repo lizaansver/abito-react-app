@@ -28,7 +28,7 @@
     font-size: 16px;
   }
   
-  .content-aside hr {
+  /* .content-aside hr {
     margin: 36px 0 39px;
     color: rgb(229, 229, 229);
   }
@@ -48,7 +48,7 @@
     color: rgb(196, 196, 196);
     font-size: 14px;
     line-height: 16px;
-  }
+  } */
 
   @media (max-width: 991px) {
     .content-aside{

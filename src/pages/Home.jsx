@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header/Header";
-import MyComponent from "../components/MyComponent"; // Импортируем MyComponent
+import ItemsList from "../components/ItemsList"; // Импортируем MyComponent
 import { our_array } from "../constants"; // Импортируем массив из constants.js
 import { Services } from "../components/Services/Services";
+import { Footer } from "../components/Footer/Footer";
 
 export const Home = () => {
   const [inputValue, setInputValue] = useState("Поиск по объявлениям");
@@ -21,13 +22,19 @@ export const Home = () => {
   //В каждом из этих случаев, event.target ссылается на элемент input, который вызвал событие, а event.target.value содержит текущее значение этого элемента.
 
   const [visibleItems, setVisibleItems] = useState(6); // Количество отображаемых карточек///
-  
-  {/** Для реализации функциональности "Показать больше" на главной странице, вам нужно будет добавить состояние для отслеживания количества отображаемых карточек и кнопку для увеличения этого количества. 
+
+  {
+    /** Для реализации функциональности "Показать больше" на главной странице, вам нужно будет добавить состояние для отслеживания количества отображаемых карточек и кнопку для увеличения этого количества. 
     Вот как это можно сделать:
 1. Добавьте состояние для отслеживания количества отображаемых карточек. ВЫШЕ
 2. Добавьте кнопку "Показать больше" и обработчик события для этой кнопки. handleShowMore
 3. Обновите компонент MyComponent для отображения только определенного количества карточек. */
   }
+
+  // Прокрутка страницы вверх при загрузке компонента
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleFocus = (event) => {
     if (event.target.value === "Поиск по объявлениям") {
@@ -49,8 +56,9 @@ export const Home = () => {
     return arr.filter((item) => {
       let lowerCaseTitle = item.title.toLowerCase();
       let lowerCaseValue = value.toLowerCase();
+      let valueTrim = value.toLowerCase().trim()
       return (
-        lowerCaseTitle.includes(lowerCaseValue) || item.title.includes(value)
+        lowerCaseTitle.includes(lowerCaseValue) || item.title.includes(value) || lowerCaseTitle.includes(valueTrim)
       ); // короче чтобы я допустим поиске писала большими или меленькими ьуквами то нужно и импут и айтем тайтл приобразовать к одному регисту
     });
   };
@@ -82,7 +90,11 @@ export const Home = () => {
               className="btn btn-primary btn-search"
               onClick={handleSearch}
             >
-              <img className="btn-search__img" src="images/find.svg" alt="" />
+              <img
+                className="btn-search__img"
+                src="/abito-react-app/images/find.svg"
+                alt=""
+              />
               <span className="btn-search__text">Найти</span>
             </button>
           </div>
@@ -94,12 +106,16 @@ export const Home = () => {
               <h2 className="content-menu__text">Рекомендации для Вас</h2>
 
               {/* Передаем отфильтрованные элементы и количество отображаемых карточек в MyComponent */}
-              <MyComponent
+              <ItemsList
                 filteredItems={filteredItems}
                 visibleItems={visibleItems}
               />
               {filteredItems.length > visibleItems ? (
-                <button className="btn btn-primary" style={{margin: '30px auto', width: '100%'}} onClick={handleShowMore}>
+                <button
+                  className="btn btn-primary"
+                  style={{ margin: "30px auto", width: "100%" }}
+                  onClick={handleShowMore}
+                >
                   Показать больше
                 </button>
               ) : null}
@@ -109,6 +125,8 @@ export const Home = () => {
           </div>
         </section>
       </main>
+      <hr />
+      <Footer/>
     </div>
   );
 };

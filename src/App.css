@@ -204,6 +204,12 @@ body {
   margin: 0 auto;
 }
 
+.content-aside hr {
+  margin: 36px 0 39px;
+  color: rgb(229, 229, 229);
+}
+
+
 @media (max-width: 1200px) {
   .container {
     max-width: 930px;
