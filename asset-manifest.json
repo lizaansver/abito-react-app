@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/abito-react-app/static/css/main.259f53b7.css",
+    "main.js": "/abito-react-app/static/js/main.7135e308.js",
+    "static/media/slick.svg": "/abito-react-app/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/abito-react-app/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/abito-react-app/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/abito-react-app/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/abito-react-app/index.html",
+    "main.259f53b7.css.map": "/abito-react-app/static/css/main.259f53b7.css.map",
+    "main.7135e308.js.map": "/abito-react-app/static/js/main.7135e308.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.259f53b7.css",
+    "static/js/main.7135e308.js"
+  ]
+}
