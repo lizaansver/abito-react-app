@@ -34,9 +34,7 @@ a {
   z-index: 2;
 }
 
-.modal,
-.registr-modal,
-.registr-message {
+.modal {
   width: 100vw;
   height: 100vh;
   background: rgb(78 99 159 / 70%);
@@ -47,23 +45,16 @@ a {
   z-index: 1;
 }
 
-.modal.active,
-.registr-modal.active,
-.registr-message.active {
+.modal.active {
   display: block;
 }
 
-.modal__content,
-.registr-modal__content{
+.modal__content{
   padding: 20px 50px; /*было 20px 87px*/
 }
-.registr-message__content{
-  padding: 20px 0px;
-}
 
-.modal__content,
-.registr-modal__content,
-.registr-message__content {
+
+.modal__content {
   position: relative;
   background: white;
   border-radius: 8px;
@@ -74,7 +65,7 @@ a {
 
 
 
-.registr-message__content {
+/* .registr-message__content {
   width: 50%;
 }
 
@@ -85,7 +76,7 @@ a {
 .registr-message__content p {
   text-align: center;
   margin: 87px auto;
-}
+} */
 
 .modal__close {
   position: absolute;
@@ -109,7 +100,7 @@ a {
   padding: 0px;
 }
 
-.registr-modal-buttons {
+/* .registr-modal-buttons {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -126,7 +117,7 @@ a {
   text-align: center;
   margin: 0px 0px 10px 0px;
   font-weight: 200;
-}
+} */
 
 label {
   display: flex;
@@ -135,7 +126,7 @@ label {
   font-size: 15px;
 }
 
-.registr__btn {
+/* .registr__btn {
   transition: background-color 0.2s ease;
 }
 .registr__btn:hover {
@@ -152,7 +143,7 @@ label {
   cursor: pointer;
   position: absolute;
   transform: translate(190px, 20px);
-}
+} */
 
 @media (max-width: 786px) {
   .header-buttons {
@@ -164,9 +155,9 @@ label {
   }
 }
 
-@media (max-width: 555px) {
+/* @media (max-width: 555px) {
   .registr-message__content,
   .registr-modal__content {
     width: 80%;
   }
-}
+} */

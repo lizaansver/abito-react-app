@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux"; // Импортирует хук useD
 import { registerUser } from "../../actions"; //Импортирует действие registerUser из файла actions.js.
 import showPasswordIcon from "../../closed_eye.png";
 import closePasswordIcon from "../../opened_eye.png";
+import { RegistrationModal } from "../RegistrationModal/RegistrationModal";
 
 export const Header = () => {
   const [modal, setModal] = useState(true);
@@ -18,6 +19,7 @@ export const Header = () => {
   const [password, setPassword] = useState(""); //Состояние для хранения пароля пользователя.
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [warning, setWarning] = useState('')
   const dispatch = useDispatch(); // функциya dispatch из Redux.
 
   const changeModal = () => {
@@ -25,13 +27,12 @@ export const Header = () => {
   };
 
   const changeRegistrmodal = () => {
-    // console.log("changeRegistrmodal called");
     setRegistrmodal(!registrmodal);
     if (!registrmodal) {
-      // console.log('ghbdtn')
       setMessage("");
       setPassword("");
       setUsername("");
+      setWarning("")
       ////Чтобы обновить плашку с регистрацией после закрытия плашки с сообщением о регистрации,
       //вы можете добавить логику для сброса значений полей ввода и
       //сообщения при открытии плашки с регистрацией.
@@ -47,13 +48,16 @@ export const Header = () => {
 
     const necessaryPassword = /^(?=.*\d)[a-zA-Z\d]{8}/
     if (!password.match(necessaryPassword)){
-      setMessage("Ошибка регистрации! Пароль должен содержать минимум 8 символов латиницы и минимум 1 цифру.")
-      return;//В данном случае, return используется для прекращения выполнения функции registration, если пароль не соответствует формату.
+      setWarning("Ошибка регистрации! Пароль должен содержать минимум 8 символов латиницы и 1 цифру")
+      return;//В данном случае, return используется для прекращения выполнения функции registration, если пароль не соответствует формату
     }
+
+   
 
     dispatch(registerUser(userData))
       .then(() => {
         setMessage("Вы успешно зарегистрировались!");
+        setWarning("")
         setRegistrmodal(false);
       })
       .catch(() => {
@@ -80,62 +84,7 @@ export const Header = () => {
           <button className="btn btn-primary">Подать объявление</button>
         </div>
         {registrmodal ? null : (
-          <div className={`registr-modal active`}>
-            <div className="registr-modal__content">
-              <h3>Регистрация</h3>
-              {/* <h6>Mинимум 8 символов латиницы и минимум 1 цифрa</h6> */}
-              <div className="registr-modal-buttons">
-                <label>
-                  Логин:
-                  <input
-                    type="text"
-                    name="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </label>
-                <label>
-                  Пароль:
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    defaultValue=""
-                  />
-                  <img
-                    className="eye"
-                    src={showPassword ? showPasswordIcon : closePasswordIcon}
-                    alt={showPassword ? "Показать пароль" : "Скрыть пароль"}
-                    onClick={changePassword}
-                  />
-                </label>
-
-                <button
-                  className="btn btn-primary registr__btn"
-                  onClick={registration}
-                >
-                  Отправить
-                </button>
-              </div>
-              {message ? (
-                <div className={`registr-message active`}>
-                  <div className="registr-message__content">
-                    <p>{message}</p>
-                    <button
-                      className="modal__close"
-                      onClick={changeRegistrmodal}
-                    >
-                      &times;
-                    </button>
-                  </div>
-                </div>
-              ) : null}
-              <button className="modal__close" onClick={changeRegistrmodal}>
-                &times;
-              </button>
-            </div>
-          </div>
+          <RegistrationModal warning={warning} username={username} setUsername={setUsername} showPassword={showPassword} password={password} setPassword={setPassword} showPasswordIcon={showPasswordIcon} closePasswordIcon={closePasswordIcon} changePassword={changePassword} registration={registration} message={message} changeRegistrmodal={changeRegistrmodal}/>
         )}
         <div className="header-burger" onClick={changeModal}>
           <img src="/abito-react-app/images/burger.svg" alt="" />
@@ -153,70 +102,7 @@ export const Header = () => {
                 <button className="btn btn-primary">Подать объявление</button>
               </div>
               {registrmodal ? null : (
-                <div className={`registr-modal active`}>
-                  <div className="registr-modal__content">
-                    <h3>Регистрация</h3>
-                    <div className="registr-modal-buttons">
-                      <label>
-                        Логин:
-                        <input
-                          type="text"
-                          name="username"
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          key={username}
-                          defaultValue=""
-                        />
-                      </label>
-                      <label>
-                        Пароль:
-                        <input
-                          type={showPassword ? "text" : "password"}
-                          name="password"
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                          defaultValue=""
-                        />
-                        <img
-                          className="eye"
-                          src={
-                            showPassword ? showPasswordIcon : closePasswordIcon
-                          }
-                          alt={
-                            showPassword ? "Показать пароль" : "Скрыть пароль"
-                          }
-                          onClick={changePassword}
-                        />
-                      </label>
-
-                      <button
-                        className="btn btn-primary registr__btn"
-                        onClick={registration}
-                      >
-                        Отправить
-                      </button>
-                    </div>
-                    <button
-                      className="modal__close"
-                      onClick={changeRegistrmodal}
-                    >
-                      &times;
-                    </button>
-                    {message ? (
-                      <div className={`registr-message active`}>
-                        <div className="registr-message__content">
-                          <p>{message}</p>
-                          <button
-                            className="modal__close"
-                            onClick={changeRegistrmodal}
-                          >
-                            &times;
-                          </button>
-                        </div>
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
+                <RegistrationModal username={username} setUsername={setUsername} showPassword={showPassword} password={password} setPassword={setPassword} showPasswordIcon={showPasswordIcon} closePasswordIcon={closePasswordIcon} changePassword={changePassword} registration={registration} message={message} changeRegistrmodal={changeRegistrmodal}/>
               )}
               <button className="modal__close" onClick={changeModal}>
                 &times;

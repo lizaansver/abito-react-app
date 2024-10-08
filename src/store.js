@@ -12,11 +12,12 @@ import { createStore, applyMiddleware } from 'redux';
 //как действия достигнут редукторов.
 
 import authReducer from './reducers';// tyt ponyatno
-import thunk from 'redux-thunk';
+
+
+import thunkMiddleware from 'redux-thunk'
 //Эта строка импортирует middleware thunk из библиотеки redux-thunk.
 //thunk позволяет обрабатывать асинхронные действия в Redux.
 
-import thunkMiddleware from 'redux-thunk'
 
 //Создание хранилища
 const store = createStore(authReducer, applyMiddleware(thunkMiddleware)); 
